@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.1 on darwin)" generated="20210506 16:59:41.409" rpa="false">
+<suite id="s1" name="SmokeTest" source="/Users/aronpaulbraza/Desktop/Bayad-Automated-Tests/Test/SmokeTest.robot">
+<kw name="Initialize browser" library="Base" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20210506 16:59:41.651" level="INFO">Opening browser 'chrome' to base url 'https://sat.online.bayad.com/'.</msg>
+<status status="PASS" starttime="20210506 16:59:41.651" endtime="20210506 16:59:46.669"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210506 16:59:46.669" endtime="20210506 16:59:46.825"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20210506 16:59:46.825" endtime="20210506 16:59:46.827"></status>
+</kw>
+<status status="PASS" starttime="20210506 16:59:41.651" endtime="20210506 16:59:46.828"></status>
+</kw>
+<test id="s1-t1" name="Verify if I can Login my NOBP Account">
+<kw name="Given I'm on the Login Page of NOBP" library="LoginPagePO">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${login_lblWelcomeToBayadOnline}</arg>
+</arguments>
+<status status="PASS" starttime="20210506 16:59:46.831" endtime="20210506 16:59:46.851"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${login_lblWelcomeToBayadOnline}</arg>
+<arg>Welcome to Bayad Online!</arg>
+</arguments>
+<msg timestamp="20210506 16:59:46.851" level="INFO">Verifying element 'css:[class*='welcome-text']' contains exact text 'Welcome to Bayad Online!'.</msg>
+<status status="PASS" starttime="20210506 16:59:46.851" endtime="20210506 16:59:46.882"></status>
+</kw>
+<status status="PASS" starttime="20210506 16:59:46.831" endtime="20210506 16:59:46.882"></status>
+</kw>
+<kw name="When I successfully inputted my email address and password" library="LoginPagePO">
+<arguments>
+<arg>${emailAddress}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${login_txtEmailAddress}</arg>
+<arg>${emailAddress}</arg>
+</arguments>
+<msg timestamp="20210506 16:59:46.883" level="INFO">Typing text 'aron.braza@novare.com.hk' into text field 'id:emailAddress'.</msg>
+<status status="PASS" starttime="20210506 16:59:46.883" endtime="20210506 16:59:47.068"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${login_txtPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20210506 16:59:47.069" level="INFO">Typing text 'P@ssword1' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210506 16:59:47.068" endtime="20210506 16:59:47.164"></status>
+</kw>
+<status status="PASS" starttime="20210506 16:59:46.882" endtime="20210506 16:59:47.165"></status>
+</kw>
+<kw name="And I click the Login button" library="LoginPagePO">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${login_btnLogin}</arg>
+<arg>20</arg>
+</arguments>
+<status status="PASS" starttime="20210506 16:59:47.166" endtime="20210506 16:59:47.192"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${login_btnLogin}</arg>
+</arguments>
+<msg timestamp="20210506 16:59:47.192" level="INFO">Clicking button 'id:login-btn'.</msg>
+<status status="PASS" starttime="20210506 16:59:47.192" endtime="20210506 16:59:47.251"></status>
+</kw>
+<status status="PASS" starttime="20210506 16:59:47.165" endtime="20210506 16:59:47.251"></status>
+</kw>
+<kw name="And successfully verified my OTP" library="OTPPagePO">
+<arguments>
+<arg>@{otp}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${otp_fieldDigit0}</arg>
+<arg>${otp}[0]</arg>
+</arguments>
+<msg timestamp="20210506 16:59:47.253" level="INFO">Typing text '1' into text field 'id:digit-0'.</msg>
+<status status="PASS" starttime="20210506 16:59:47.252" endtime="20210506 16:59:53.462"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${otp_fieldDigit1}</arg>
+<arg>${otp}[1]</arg>
+</arguments>
+<msg timestamp="20210506 16:59:53.463" level="INFO">Typing text '2' into text field 'id:digit-1'.</msg>
+<status status="PASS" starttime="20210506 16:59:53.462" endtime="20210506 16:59:53.520"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${otp_fieldDigit2}</arg>
+<arg>${otp}[2]</arg>
+</arguments>
+<msg timestamp="20210506 16:59:53.521" level="INFO">Typing text '3' into text field 'id:digit-2'.</msg>
+<status status="PASS" starttime="20210506 16:59:53.520" endtime="20210506 16:59:53.583"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${otp_fieldDigit3}</arg>
+<arg>${otp}[3]</arg>
+</arguments>
+<msg timestamp="20210506 16:59:53.584" level="INFO">Typing text '4' into text field 'id:digit-3'.</msg>
+<status status="PASS" starttime="20210506 16:59:53.584" endtime="20210506 16:59:53.641"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${otp_fieldDigit4}</arg>
+<arg>${otp}[4]</arg>
+</arguments>
+<msg timestamp="20210506 16:59:53.642" level="INFO">Typing text '5' into text field 'id:digit-4'.</msg>
+<status status="PASS" starttime="20210506 16:59:53.642" endtime="20210506 16:59:53.698"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${otp_fieldDigit5}</arg>
+<arg>${otp}[5]</arg>
+</arguments>
+<msg timestamp="20210506 16:59:53.699" level="INFO">Typing text '6' into text field 'id:digit-5'.</msg>
+<status status="PASS" starttime="20210506 16:59:53.698" endtime="20210506 16:59:53.754"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${otp_btnVerify}</arg>
+</arguments>
+<msg timestamp="20210506 16:59:53.754" level="INFO">Clicking button 'id:verify-otp-btn'.</msg>
+<status status="PASS" starttime="20210506 16:59:53.754" endtime="20210506 16:59:53.820"></status>
+</kw>
+<status status="PASS" starttime="20210506 16:59:47.251" endtime="20210506 16:59:53.820"></status>
+</kw>
+<kw name="Then the page should be redirected to to NOBP Dashboard" library="DashboardPagePO">
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Hello, ${name}!</arg>
+</arguments>
+<msg timestamp="20210506 17:00:03.330" level="INFO">Current page contains text 'Hello, Aron!'.</msg>
+<status status="PASS" starttime="20210506 16:59:53.821" endtime="20210506 17:00:03.331"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Hello, ${name}!</arg>
+</arguments>
+<msg timestamp="20210506 17:00:03.331" level="INFO">Hello, Aron!</msg>
+<status status="PASS" starttime="20210506 17:00:03.331" endtime="20210506 17:00:03.331"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>MY SAVED BILLERS</arg>
+</arguments>
+<msg timestamp="20210506 17:00:03.371" level="INFO">Current page contains text 'MY SAVED BILLERS'.</msg>
+<status status="PASS" starttime="20210506 17:00:03.332" endtime="20210506 17:00:03.371"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>BUY LOAD</arg>
+</arguments>
+<msg timestamp="20210506 17:00:03.403" level="INFO">Current page contains text 'BUY LOAD'.</msg>
+<status status="PASS" starttime="20210506 17:00:03.372" endtime="20210506 17:00:03.403"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>BILLS PAYMENT</arg>
+</arguments>
+<msg timestamp="20210506 17:00:03.436" level="INFO">Current page contains text 'BILLS PAYMENT'.</msg>
+<status status="PASS" starttime="20210506 17:00:03.403" endtime="20210506 17:00:03.437"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>TRANSACTION HISTORY</arg>
+</arguments>
+<msg timestamp="20210506 17:00:03.822" level="INFO">Current page contains text 'TRANSACTION HISTORY'.</msg>
+<status status="PASS" starttime="20210506 17:00:03.437" endtime="20210506 17:00:03.822"></status>
+</kw>
+<status status="PASS" starttime="20210506 16:59:53.821" endtime="20210506 17:00:03.822"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${EXECDIR}/SmokeTesting_Screenshot/TC2.png</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.031" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SmokeTesting_Screenshot/TC2.png"&gt;&lt;img src="../SmokeTesting_Screenshot/TC2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210506 17:00:03.823" endtime="20210506 17:00:05.031"></status>
+</kw>
+<status status="PASS" starttime="20210506 16:59:46.828" endtime="20210506 17:00:05.031" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Verify if I can pay my bill/s in NOBP">
+<kw name="Given I'm in the NOBP Dashboard" library="DashboardPagePO">
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<kw name="the page should be redirected to to NOBP Dashboard" library="DashboardPagePO">
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Hello, ${name}!</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.069" level="INFO">Current page contains text 'Hello, Aron!'.</msg>
+<status status="PASS" starttime="20210506 17:00:05.034" endtime="20210506 17:00:05.069"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Hello, ${name}!</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.070" level="INFO">Hello, Aron!</msg>
+<status status="PASS" starttime="20210506 17:00:05.069" endtime="20210506 17:00:05.070"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>MY SAVED BILLERS</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.104" level="INFO">Current page contains text 'MY SAVED BILLERS'.</msg>
+<status status="PASS" starttime="20210506 17:00:05.070" endtime="20210506 17:00:05.104"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>BUY LOAD</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.139" level="INFO">Current page contains text 'BUY LOAD'.</msg>
+<status status="PASS" starttime="20210506 17:00:05.104" endtime="20210506 17:00:05.139"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>BILLS PAYMENT</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.170" level="INFO">Current page contains text 'BILLS PAYMENT'.</msg>
+<status status="PASS" starttime="20210506 17:00:05.139" endtime="20210506 17:00:05.170"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>TRANSACTION HISTORY</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.202" level="INFO">Current page contains text 'TRANSACTION HISTORY'.</msg>
+<status status="PASS" starttime="20210506 17:00:05.171" endtime="20210506 17:00:05.202"></status>
+</kw>
+<status status="PASS" starttime="20210506 17:00:05.033" endtime="20210506 17:00:05.203"></status>
+</kw>
+<status status="PASS" starttime="20210506 17:00:05.033" endtime="20210506 17:00:05.203"></status>
+</kw>
+<kw name="When I click Electricty button" library="DashboardPagePO">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${dashboard_btnElectricity}</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.204" level="INFO">Clicking element 'id:btnCardElectricity'.</msg>
+<status status="PASS" starttime="20210506 17:00:05.203" endtime="20210506 17:00:05.318"></status>
+</kw>
+<status status="PASS" starttime="20210506 17:00:05.203" endtime="20210506 17:00:05.319"></status>
+</kw>
+<kw name="And I click MERALCO biller" library="ElectricityUtilitiesPagePO">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${electricityUtilities_btnMeralco}</arg>
+</arguments>
+<msg timestamp="20210506 17:00:05.320" level="INFO">Clicking element 'css:[class='biller-tile-card'] [src*='MECOR']'.</msg>
+<status status="PASS" starttime="20210506 17:00:05.319" endtime="20210506 17:00:10.876"></status>
+</kw>
+<status status="PASS" starttime="20210506 17:00:05.319" endtime="20210506 17:00:10.876"></status>
+</kw>
+<kw name="And input all the required fields for Meralco Biller" library="PayBillsPagePO">
+<arguments>
+<arg>${meralco_ReferenceNumber}</arg>
+<arg>${meralco_Amount}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${payBills_txtReferenceNumber}</arg>
+<arg>${meralco_ReferenceNumber}</arg>
+</arguments>
+<msg timestamp="20210506 17:00:10.878" level="INFO">Typing text '1000147292' into text field 'id:referenceNumber'.</msg>
+<status status="PASS" starttime="20210506 17:00:10.878" endtime="20210506 17:00:12.205"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${payBills_txtAmount}</arg>
+<arg>${meralco_Amount}</arg>
+</arguments>
+<msg timestamp="20210506 17:00:12.206" level="INFO">Typing text '5' into text field 'id:amount'.</msg>
+<status status="PASS" starttime="20210506 17:00:12.205" endtime="20210506 17:00:12.298"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${payBills_btnToggle}[0]</arg>
+</arguments>
+<msg timestamp="20210506 17:00:12.299" level="INFO">Clicking element 'css:[class*='slider']'.</msg>
+<status status="PASS" starttime="20210506 17:00:12.299" endtime="20210506 17:00:12.356"></status>
+</kw>
+<status status="PASS" starttime="20210506 17:00:10.877" endtime="20210506 17:00:12.357"></status>
+</kw>
+<kw name="And click the PAY BILL button" library="PayBillsPagePO">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${payBills_btnPayBill}</arg>
+<arg>20</arg>
+</arguments>
+<status status="PASS" starttime="20210506 17:00:12.358" endtime="20210506 17:00:12.401"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${payBills_btnPayBill}</arg>
+</arguments>
+<msg timestamp="20210506 17:00:12.402" level="INFO">Clicking button 'id:btnPayBills'.</msg>
+<status status="PASS" starttime="20210506 17:00:12.401" endtime="20210506 17:00:12.478"></status>
+</kw>
+<status status="PASS" starttime="20210506 17:00:12.358" endtime="20210506 17:00:12.478"></status>
+</kw>
+<kw name="And click the VISA payment method in Conformation Details" library="ConfirmationDetailsPagePO">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${confirmationDetails_radioBtnVisa}[0]</arg>
+</arguments>
+<msg timestamp="20210506 17:00:12.480" level="INFO">Clicking element 'css:[class*='tickmark']'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210506 17:00:26.589" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=90.0.4430.93)
+</msg>
+<status status="FAIL" starttime="20210506 17:00:26.573" endtime="20210506 17:00:26.590"></status>
+</kw>
+<msg timestamp="20210506 17:00:26.590" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=90.0.4430.93)
+</msg>
+<msg timestamp="20210506 17:00:26.596" level="FAIL">Element with locator 'css:[class*='tickmark']' not found.</msg>
+<status status="FAIL" starttime="20210506 17:00:12.479" endtime="20210506 17:00:26.596"></status>
+</kw>
+<status status="FAIL" starttime="20210506 17:00:12.479" endtime="20210506 17:00:26.601"></status>
+</kw>
+<status status="FAIL" starttime="20210506 17:00:05.032" endtime="20210506 17:00:26.602" critical="yes">Element with locator 'css:[class*='tickmark']' not found.</status>
+</test>
+<kw name="Teardown" library="Base" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210506 17:00:26.604" endtime="20210506 17:00:26.751"></status>
+</kw>
+<status status="PASS" starttime="20210506 17:00:26.604" endtime="20210506 17:00:26.751"></status>
+</kw>
+<status status="FAIL" starttime="20210506 16:59:41.411" endtime="20210506 17:00:26.751"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1">Critical Tests</stat>
+<stat pass="1" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" id="s1" name="SmokeTest">SmokeTest</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210506 17:00:26.590" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=90.0.4430.93)
+</msg>
+</errors>
+</robot>
